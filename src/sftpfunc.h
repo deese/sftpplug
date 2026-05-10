@@ -1,6 +1,4 @@
 #include "config.h"
-// Prevent libssh2 from declaring functions as dllimport since we load dynamically
-#define LIBSSH2_API
 #include "libssh2.h"
 #include "libssh2_sftp.h" 
 
