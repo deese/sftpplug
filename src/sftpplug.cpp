@@ -162,6 +162,13 @@ void __stdcall FsSetCryptCallback(tCryptProc pCryptProc,int CryptoNr,int Flags)
 	CryptoNumber=CryptoNr;
 }
 
+void __stdcall FsSetCryptCallbackW(tCryptProcW pCryptProcW,int CryptoNr,int Flags)
+{
+	// The ANSI callback is used internally; store if needed
+	CryptCheckPass=(Flags & FS_CRYPTOPT_MASTERPASS_SET)!=0;
+	CryptoNumber=CryptoNr;
+}
+
 typedef struct {
    void* sftpdataptr;
    SERVERID serverid;
@@ -183,6 +190,12 @@ BOOL __stdcall FsDisconnect(char* DisconnectRoot)
 		SetServerIdForName(DisplayName,NULL); // this frees it too!
 	}
 	return TRUE;
+}
+
+BOOL __stdcall FsDisconnectW(WCHAR* DisconnectRoot)
+{
+	char DisconnectRootA[wdirtypemax];
+	return FsDisconnect(wafilenamecopy(DisconnectRootA,DisconnectRoot));
 }
  
 HANDLE __stdcall FsFindFirstW(WCHAR* Path,WIN32_FIND_DATAW *FindData)
@@ -814,6 +827,12 @@ BOOL __stdcall FsSetAttr(char* RemoteName,int NewAttr)
 	return SftpSetAttr(serverid,remotedir,NewAttr)==SFTP_OK;
 }
 
+BOOL __stdcall FsSetAttrW(WCHAR* RemoteName,int NewAttr)
+{
+	char RemoteNameA[wdirtypemax];
+	return FsSetAttr(wafilenamecopy(RemoteNameA,RemoteName),NewAttr);
+}
+
 BOOL __stdcall FsSetTimeW(WCHAR* RemoteName,FILETIME *CreationTime,
       FILETIME *LastAccessTime,FILETIME *LastWriteTime)
 {
@@ -866,6 +885,12 @@ void __stdcall FsStatusInfo(char* RemoteDir,int InfoStartEnd,int InfoOperation)
 	}
 }
 
+void __stdcall FsStatusInfoW(WCHAR* RemoteDir,int InfoStartEnd,int InfoOperation)
+{
+	char RemoteDirA[wdirtypemax];
+	FsStatusInfo(wafilenamecopy(RemoteDirA,RemoteDir),InfoStartEnd,InfoOperation);
+}
+
 void __stdcall FsGetDefRootName(char* DefRootName,int maxlen)
 {
    strlcpy(DefRootName,defrootname,maxlen);
@@ -914,6 +939,12 @@ int __stdcall FsExtractCustomIcon(char* RemoteName,int ExtractFlags,HICON* TheIc
 		}
 	}	
 	return FS_ICON_USEDEFAULT;
+}
+
+int __stdcall FsExtractCustomIconW(WCHAR* RemoteName,int ExtractFlags,HICON* TheIcon)
+{
+	char RemoteNameA[wdirtypemax];
+	return FsExtractCustomIcon(wafilenamecopy(RemoteNameA,RemoteName),ExtractFlags,TheIcon);
 }
 
 int __stdcall FsGetBackgroundFlags(void)

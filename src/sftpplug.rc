@@ -12,6 +12,39 @@
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "deese"
+            VALUE "FileDescription", "SFTP Plugin for Total Commander"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "sftpplug"
+            VALUE "LegalCopyright", "Copyright (C) 2025"
+            VALUE "OriginalFilename", "sftpplug.wfx"
+            VALUE "ProductName", "SFTP Plugin"
+            VALUE "ProductVersion", "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
 /////////////////////////////////////////////////////////////////////////////
 // German (Germany) resources
 
@@ -43,27 +76,27 @@ BEGIN
     PUSHBUTTON      "?",IDC_PASSWORDHELP,78,57,12,10
     CONTROL         "PuTTY-Agenten benutzen (Pageant)",IDC_USEAGENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,58,130,8
     EDITTEXT        IDC_PASSWORD,5,68,266,12,ES_PASSWORD | ES_AUTOHSCROLL
-    PUSHBUTTON      "Kennwort &ändern...",IDC_EDITPASS,5,71,266,14,NOT WS_VISIBLE
-    CONTROL         "Schütze Kennwort mit Hauptkennwort (TC>=7.5)",IDC_CRYPTPASS,
+    PUSHBUTTON      "Kennwort &ï¿½ndern...",IDC_EDITPASS,5,71,266,14,NOT WS_VISIBLE
+    CONTROL         "Schï¿½tze Kennwort mit Hauptkennwort (TC>=7.5)",IDC_CRYPTPASS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,82,266,10
-    GROUPBOX        "Benut&zerzertifikat für Authentifizierung:",IDC_CERTFRAME,5,92,266,59
-    LTEXT           "Öffentliche Schlüsseldatei (*.pub):",IDC_STATICPUB,10,103,240,8
+    GROUPBOX        "Benut&zerzertifikat fï¿½r Authentifizierung:",IDC_CERTFRAME,5,92,266,59
+    LTEXT           "ï¿½ffentliche Schlï¿½sseldatei (*.pub):",IDC_STATICPUB,10,103,240,8
     EDITTEXT        IDC_PUBKEY,10,112,239,12,ES_AUTOHSCROLL
     PUSHBUTTON      ">>",IDC_LOADPUBKEY,250,112,16,12
-    LTEXT           "Private Schlüsseldatei (*.pem):",IDC_STATICPEM,10,126, 253,8
+    LTEXT           "Private Schlï¿½sseldatei (*.pem):",IDC_STATICPEM,10,126, 253,8
     EDITTEXT        IDC_PRIVKEY,10,136,239,12,ES_AUTOHSCROLL
     PUSHBUTTON      ">>",IDC_LOADPRIVKEY,250,136,16,12
     PUSHBUTTON      "?",IDC_CERTHELP,254,100,12,10
-    CONTROL         "Kom&pression mit ZLIB (Warnung: Bei einigen Servern schlägt Verbindung fehl)",
+    CONTROL         "Kom&pression mit ZLIB (Warnung: Bei einigen Servern schlï¿½gt Verbindung fehl)",
                     IDC_COMPRESS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,152, 266,8
-    CONTROL         "Schreibe komplette Verzeichnislisten in &Logdatei (für Fehleranalyse)",IDC_DETAILED_LOG,
+    CONTROL         "Schreibe komplette Verzeichnislisten in &Logdatei (fï¿½r Fehleranalyse)",IDC_DETAILED_LOG,
 "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,          162,266,8
     CONTROL         "Sende Befehl zur Aufrechterhaltung der Verbindung (Sekunden):",IDC_KEEP_ALIVE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,172,220,8
     EDITTEXT        IDC_KEEP_ALIVE_SECONDS,236,170,28,12,ES_AUTOHSCROLL | ES_NUMBER
-    CONTROL         "Benutze SCP für Transfers (schneller!)",IDC_SCP_DATA,
+    CONTROL         "Benutze SCP fï¿½r Transfers (schneller!)",IDC_SCP_DATA,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,182,145,8
-    CONTROL         "Benutze SCP für alles (kein SFTP)",IDC_SCP_ALL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,192,146,8
+    CONTROL         "Benutze SCP fï¿½r alles (kein SFTP)",IDC_SCP_ALL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,192,146,8
     LTEXT           "System:",IDC_STATIC,155,187,34,8
     COMBOBOX        IDC_SYSTEM,189,185,78,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Codierung der Dateinamen auf dem Server:",IDC_STATIC,
@@ -78,7 +111,7 @@ BEGIN
     LTEXT           "Proxy-Einstellungen:",IDC_STATIC,5,241,266,8
     COMBOBOX        IDC_PROXYCOMBO,5,251,244,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      ">>",IDC_PROXYBUTTON,251,250,20,14
-    PUSHBUTTON      "Letzten Proxy löschen",IDC_DELETELAST,5,266,80,14
+    PUSHBUTTON      "Letzten Proxy lï¿½schen",IDC_DELETELAST,5,266,80,14
     DEFPUSHBUTTON   "OK",IDOK,165,269,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,221,269,50,14
 END
@@ -95,8 +128,8 @@ BEGIN
     LTEXT           "Besitzer:",IDC_STATIC,16,33,28,8
     LTEXT           "Gruppe:",IDC_STATIC,16,46,26,8
     LTEXT           "Permissions:",IDC_STATIC,16,59,40,8
-    LTEXT           "Grösse:",IDC_STATIC,16,72,25,8
-    LTEXT           "Geändert:",IDC_STATIC,16,85,32,8
+    LTEXT           "Grï¿½sse:",IDC_STATIC,16,72,25,8
+    LTEXT           "Geï¿½ndert:",IDC_STATIC,16,85,32,8
     EDITTEXT        IDC_PROP_NAME,72,20,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_PROP_OWNER,72,33,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_PROP_GROUP,72,46,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
@@ -132,9 +165,9 @@ BEGIN
                     ES_AUTOHSCROLL
     PUSHBUTTON      "?",IDC_PROXYHELP,256,18,12,10
     GROUPBOX        "Proxyeinstellungen",IDC_STATIC,7,7,266,89
-    PUSHBUTTON      "Kennwort &ändern...",IDC_EDITPASS,69,66,198,14,NOT 
+    PUSHBUTTON      "Kennwort &ï¿½ndern...",IDC_EDITPASS,69,66,198,14,NOT 
                     WS_VISIBLE
-    CONTROL         "Schütze Kennwort mit Hauptkennwort (TC>=7.5)",
+    CONTROL         "Schï¿½tze Kennwort mit Hauptkennwort (TC>=7.5)",
                     IDC_CRYPTPASS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,
                     81,258,10
     DEFPUSHBUTTON   "OK",IDOK,167,99,50,14
@@ -188,13 +221,13 @@ BEGIN
     12002                   "Timeout"
     12003                   "Erweiterter Fehler"
     12004                   "Interner Fehler"
-    12005                   "Ungültige URL"
+    12005                   "Ungï¿½ltige URL"
     12006                   "Nicht erkanntes Schema"
-    12007                   "Name konnte nicht aufgelöst werden"
+    12007                   "Name konnte nicht aufgelï¿½st werden"
     12008                   "Protokoll nicht gefunden"
-    12009                   "Ungültige Option"
-    12010                   "Falsche Optionslänge"
-    12011                   "Option lässt sich nicht setzen"
+    12009                   "Ungï¿½ltige Option"
+    12010                   "Falsche Optionslï¿½nge"
+    12011                   "Option lï¿½sst sich nicht setzen"
     12012                   "Shutdown"
     12013                   "Falscher Benutzername"
     12014                   "Falsches Kennwort"
@@ -203,69 +236,69 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    12016                   "Ungültiger Vorgang"
+    12016                   "Ungï¿½ltiger Vorgang"
     12017                   "Vorgang abgebrochen"
     12018                   "Falscher Handletyp"
     12019                   "Falscher Handlestatus"
     12020                   "Kein Proxybefehl"
     12021                   "Registrywert nicht gefunden"
-    12022                   "Ungültiger Registry-Parameter"
+    12022                   "Ungï¿½ltiger Registry-Parameter"
     12023                   "Kein direkter Zugriff"
     12024                   "Kein Kontext"
-    12025                   "Keine Rückruffunktion"
-    12026                   "Anforderung hängig"
-    12027                   "Ungültiges Format"
+    12025                   "Keine Rï¿½ckruffunktion"
+    12026                   "Anforderung hï¿½ngig"
+    12027                   "Ungï¿½ltiges Format"
     12028                   "Eintrag nicht gefunden"
     12029                   "Verbindung konnte nicht aufgebaut werden"
     12030                   "Verbindung abgebrochen"
-    12031                   "Verbindung zurückgesetzt"
+    12031                   "Verbindung zurï¿½ckgesetzt"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     12032                   "Nochmals versuchen"
-    12033                   "Ungültiger Proxybefehl"
-    12034                   "Benutzerinterface nötig"
+    12033                   "Ungï¿½ltiger Proxybefehl"
+    12034                   "Benutzerinterface nï¿½tig"
     12035                   "Unbekannt"
     12036                   "Handle existiert"
-    12037                   "Zertifikatsdatum ist ungültig"
-    12038                   "Zertifikatsname CN ist ungültig"
+    12037                   "Zertifikatsdatum ist ungï¿½ltig"
+    12038                   "Zertifikatsname CN ist ungï¿½ltig"
     12039                   "Von HTTP nach HTTPS umgeleitet"
     12040                   "Von HTTPS nach HTTP umgeleitet"
     12041                   "Gemischte Sicherheit"
     12042                   "CHG Post-Methode ist nicht sicher"
     12043                   "Post-Methode ist nicht sicher"
-    12044                   "Ein Clientzertifikat wird zur Authentifizierung benötigt"
-    12045                   "Zertifizierungsstelle ist ungültig"
+    12044                   "Ein Clientzertifikat wird zur Authentifizierung benï¿½tigt"
+    12045                   "Zertifizierungsstelle ist ungï¿½ltig"
     12046                   "Authentifizierung des Client's wurde nicht eingerichtet"
     12047                   "Asynchroner Thread fehlgeschlagen"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    12048                   "Änderung des Umleitungsschemas"
-    12049                   "Dialog hängig"
+    12048                   "ï¿½nderung des Umleitungsschemas"
+    12049                   "Dialog hï¿½ngig"
     12050                   "Dialog sollte erneut angezeigt werden"
     12051                   "Unbekannt"
-    12052                   "Übertragung von HTTPS nach HTTP umgeleitet"
+    12052                   "ï¿½bertragung von HTTPS nach HTTP umgeleitet"
     12053                   "CD-ROM einlegen"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_F7NEW               "_F7=neue Verbindung.txt"
-    IDS_HELPTEXT            "Pluginhilfe:\r\nF7:\tNeue Verbindung anlegen\r\nF8/Entf:\tVerbindung löschen\r\nEnter\tVerbinden\r\nAlt+Enter\tOptionen ändern"
+    IDS_HELPTEXT            "Pluginhilfe:\r\nF7:\tNeue Verbindung anlegen\r\nF8/Entf:\tVerbindung lï¿½schen\r\nEnter\tVerbinden\r\nAlt+Enter\tOptionen ï¿½ndern"
     IDS_QUICKCONNECT        "_Schnellverbindung"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_HELP_CAPTION        "Hilfe"
-    IDS_HELP_UTF8           "Hier können Sie einstellen, wie der Server Umlaute und Akzente in Dateinamen überträgt. Falls Sie 'automatisch' wählen, wird das SFTP-Plugin einige Umgebungsvariablen des Servers wie 'LANG' abfragen und den Befehl 'locale' senden, um herauszufinden, ob der Server UTF-8 verwendet.\n\nLeider funktioniert das nicht mit allen Servern. Wenn Sie wissen, dass Ihr Server UTF-8 verwendet, oder in den Dateilisten seltsame Zeichen anstelle der Umlaute auftauchen, dann wählen Sie bitte selbst 'Ja'."
-    IDS_HELP_PROXY          "Hier kann festgelegt werden, ob eine Direktverbindung oder eine Verbindung über einen selbst definierten Proxy(:Port) hergestellt werden soll. Wenn der Proxyserver einen Benutzernamen/Kennwort erfordert, können diese Daten hier eingegeben werden. Der Proxy muss eine Verbindung mit dem CONNECT-Befehl zum Port des SSH-Servers unterstützen, oder muss das SOCKS-Protokoll unterstützen."
-    IDS_HELP_CERT           "Hier können Sie den Ort des öffentlichen/privaten Schlüssels festlegen, für die Authentifizierung via Benutzerzertifikat.\r\nDie Schlüssel müssen im OpenSSH-Format vorliegen.\r\n\r\nFolgen Sie diesen Schritten, um einen Putty-Schlüssel (*.ppk) ins OpenSSH-Format zu konvertieren:\r\n1.Starten Sie puttygen.exe\r\n2. Laden Sie Ihren Putty-Schlüssel damit\n3. Klicken Sie NICHT auf ""Save public key"", das erzeugt einen inkompatiblen Schlüssel!\n   Stattdessen markieren Sie den Text im Abschnitt ""Public key for pasting into OpenSSH..."" und drücken Sie Strg+C (=Kopieren in die Zwischenablage) \n4. Erzeugen Sie eine neue Datei mit Erweiterung .pub (Umsch+F4 im Total Commander) und drücken Sie Strg+V (=Einfügen) \n5. Wählen Sie ""Export SSH key"" aus dem Menü ""Conversions"", um die *.pem-Datei zu speichern.\n\nUnterstützt Umgebungsvariablen wie %commander_path%.\n%USER% (alles gross!) wird durch den Benutzernamen ersetzt."
+    IDS_HELP_UTF8           "Hier kï¿½nnen Sie einstellen, wie der Server Umlaute und Akzente in Dateinamen ï¿½bertrï¿½gt. Falls Sie 'automatisch' wï¿½hlen, wird das SFTP-Plugin einige Umgebungsvariablen des Servers wie 'LANG' abfragen und den Befehl 'locale' senden, um herauszufinden, ob der Server UTF-8 verwendet.\n\nLeider funktioniert das nicht mit allen Servern. Wenn Sie wissen, dass Ihr Server UTF-8 verwendet, oder in den Dateilisten seltsame Zeichen anstelle der Umlaute auftauchen, dann wï¿½hlen Sie bitte selbst 'Ja'."
+    IDS_HELP_PROXY          "Hier kann festgelegt werden, ob eine Direktverbindung oder eine Verbindung ï¿½ber einen selbst definierten Proxy(:Port) hergestellt werden soll. Wenn der Proxyserver einen Benutzernamen/Kennwort erfordert, kï¿½nnen diese Daten hier eingegeben werden. Der Proxy muss eine Verbindung mit dem CONNECT-Befehl zum Port des SSH-Servers unterstï¿½tzen, oder muss das SOCKS-Protokoll unterstï¿½tzen."
+    IDS_HELP_CERT           "Hier kï¿½nnen Sie den Ort des ï¿½ffentlichen/privaten Schlï¿½ssels festlegen, fï¿½r die Authentifizierung via Benutzerzertifikat.\r\nDie Schlï¿½ssel mï¿½ssen im OpenSSH-Format vorliegen.\r\n\r\nFolgen Sie diesen Schritten, um einen Putty-Schlï¿½ssel (*.ppk) ins OpenSSH-Format zu konvertieren:\r\n1.Starten Sie puttygen.exe\r\n2. Laden Sie Ihren Putty-Schlï¿½ssel damit\n3. Klicken Sie NICHT auf ""Save public key"", das erzeugt einen inkompatiblen Schlï¿½ssel!\n   Stattdessen markieren Sie den Text im Abschnitt ""Public key for pasting into OpenSSH..."" und drï¿½cken Sie Strg+C (=Kopieren in die Zwischenablage) \n4. Erzeugen Sie eine neue Datei mit Erweiterung .pub (Umsch+F4 im Total Commander) und drï¿½cken Sie Strg+V (=Einfï¿½gen) \n5. Wï¿½hlen Sie ""Export SSH key"" aus dem Menï¿½ ""Conversions"", um die *.pem-Datei zu speichern.\n\nUnterstï¿½tzt Umgebungsvariablen wie %commander_path%.\n%USER% (alles gross!) wird durch den Benutzernamen ersetzt."
     IDS_CONNECT_TO          "Verbinden mit: "
-    IDS_VIA_PROXY           "Über Proxy:"
+    IDS_VIA_PROXY           "ï¿½ber Proxy:"
     IDS_ERR_PROXYCONNECT    "Fehler: Verbindung zu PROXY fehlgeschlagen!"
     IDS_ERR_SERVERCONNECT   "Fehler: Verbindung zum angegebenen Server fehlgeschlagen!"
     IDS_VIA_PROXY_CONNECT   "Fehler: Verbindung zum angegebenen Server via Proxy fehlgeschlagen!"
@@ -279,36 +312,36 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_ERR_INIT_SFTP       "Fehler: Konnte SFTP-Sitzung nicht initialisieren!\n"
-    IDS_PROXY_PASSWORD_FOR  "SFTP-Proxy-Kennwort für "
+    IDS_PROXY_PASSWORD_FOR  "SFTP-Proxy-Kennwort fï¿½r "
     IDS_PROXY_PASSWORD      "Proxy-Kennwort:"
-    IDS_USERNAME_FOR        "SFTP-Benutzername für "
+    IDS_USERNAME_FOR        "SFTP-Benutzername fï¿½r "
     IDS_INITSSH2            "Initialisiere SSH2..."
     IDS_SET_COMPRESSION     "Kompression festlegen..."
     IDS_SESSION_STARTUP     "Sitzung startet..."
-    IDS_SSH_LOGIN           "Login über SSH2..."
+    IDS_SSH_LOGIN           "Login ï¿½ber SSH2..."
     IDS_SERVER_FINGERPRINT  "Server-Fingerabdruck:"
     IDS_CONNECTION_FIRSTTIME 
-                            "Sie benutzen diese Verbindung zum ersten Mal.\nBitte überprüfen Sie, ob der folgende Fingerabdruck mit dem Fingerabdruck Ihres Servers übereinstimmt:\n\n"
-    IDS_FINGERPRINT_CHANGED "WARNUNG!\n\nDer Fingerabdruck des Servers hat sich geändert!\nBitte überprüfen Sie, ob der neue Fingerabdruck mit dem neuen Fingerabdruck Ihres Servers übereinstimmt:\n\n"
+                            "Sie benutzen diese Verbindung zum ersten Mal.\nBitte ï¿½berprï¿½fen Sie, ob der folgende Fingerabdruck mit dem Fingerabdruck Ihres Servers ï¿½bereinstimmt:\n\n"
+    IDS_FINGERPRINT_CHANGED "WARNUNG!\n\nDer Fingerabdruck des Servers hat sich geï¿½ndert!\nBitte ï¿½berprï¿½fen Sie, ob der neue Fingerabdruck mit dem neuen Fingerabdruck Ihres Servers ï¿½bereinstimmt:\n\n"
     IDS_FINGERPRINT         "Fingerabdruck: "
     IDS_CONNECTING          "Verbinden..."
-    IDS_USER_AUTH_LIST      "Empfange unterstützte Authentifizierungsmethoden..."
-    IDS_SUPPORTED_AUTH_METHODS "Unterstützte Authentifizierungsmethoden: "
-    IDS_ERR_LOAD_PUBKEY     "Kann öffentlichen Schlüssel nicht öffnen!\n"
+    IDS_USER_AUTH_LIST      "Empfange unterstï¿½tzte Authentifizierungsmethoden..."
+    IDS_SUPPORTED_AUTH_METHODS "Unterstï¿½tzte Authentifizierungsmethoden: "
+    IDS_ERR_LOAD_PUBKEY     "Kann ï¿½ffentlichen Schlï¿½ssel nicht ï¿½ffnen!\n"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ERR_LOAD_PRIVKEY    "Kann privaten Schlüssel nicht öffnen\n"
+    IDS_ERR_LOAD_PRIVKEY    "Kann privaten Schlï¿½ssel nicht ï¿½ffnen\n"
     IDS_ERR_PUBKEY_WRONG_FORMAT 
-                            "Der öffentliche Schlüssel hat das falsche Format, siehe readme.txt für eine Anleitung!"
-    IDS_PASSPHRASE          "SFTP-Passphrase für "
-    IDS_KEYPASSPHRASE       "Passphrase für privaten Schlüssel:"
-    IDS_AUTH_PUBKEY_FOR     "Authentifizierung via Benutzerzertifikat für Benutzer: "
+                            "Der ï¿½ffentliche Schlï¿½ssel hat das falsche Format, siehe readme.txt fï¿½r eine Anleitung!"
+    IDS_PASSPHRASE          "SFTP-Passphrase fï¿½r "
+    IDS_KEYPASSPHRASE       "Passphrase fï¿½r privaten Schlï¿½ssel:"
+    IDS_AUTH_PUBKEY_FOR     "Authentifizierung via Benutzerzertifikat fï¿½r Benutzer: "
     IDS_AUTH_PUBKEY         "Authentifizierung via Benutzerzertifikat"
-    IDS_AUTH_PASSWORD_FOR   "Authentifizierung via Kennwort für Benutzer: "
+    IDS_AUTH_PASSWORD_FOR   "Authentifizierung via Kennwort fï¿½r Benutzer: "
     IDS_AUTH_PASSWORD       "Authentifizierung via Kennwort"
-    IDS_AUTH_KEYBDINT_FOR   "Authentifizierung via Methode 'Tastatur-interaktiv' für Benutzer: "
+    IDS_AUTH_KEYBDINT_FOR   "Authentifizierung via Methode 'Tastatur-interaktiv' fï¿½r Benutzer: "
     IDS_AUTH_KEYBDINT       "Authentifizierung via Methode 'Tastatur-interaktiv'"
     IDS_FTP_INIT            "Herstellen der SFTP-Verbindung..."
     IDS_DISCONNECTING       "Trennen..."
@@ -320,7 +353,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ERR_GET_DIR         "Verzeichnis nicht geöffnet: "
+    IDS_ERR_GET_DIR         "Verzeichnis nicht geï¿½ffnet: "
     IDS_MK_DIR              "Verzeichnis anlegen: "
     IDS_ERR_MK_DIR          "Verzeichnis nicht angelegt: "
     IDS_RENFR               "Umbenennen von: "
@@ -328,13 +361,13 @@ BEGIN
     IDS_ERR_RENAME          "Umbenennen FEHLGESCHLAGEN: "
     IDS_DOWNLOAD            "Datei herunterladen: "
     IDS_UPLOAD              "Datei hochladen: "
-    IDS_DELETE              "Datei löschen: "
-    IDS_ERR_DELETE          "Löschen FEHLGESCHLAGEN: "
+    IDS_DELETE              "Datei lï¿½schen: "
+    IDS_ERR_DELETE          "Lï¿½schen FEHLGESCHLAGEN: "
     IDS_AUTO                "automatisch erkennen"
     IDS_YES                 "Ja"
     IDS_NO                  "Nein"
     IDS_OUTOFREACH          "Das Linkziel liegt ausserhalb des Basisverzeichnisses!\n"
-    IDS_FOLLOWLINKROOT      "\nFalls Sie diesem Link folgen, wird das Basisverzeichnis des Plugins auf das Rootverzeichnis / des Servers geändert!"
+    IDS_FOLLOWLINKROOT      "\nFalls Sie diesem Link folgen, wird das Basisverzeichnis des Plugins auf das Rootverzeichnis / des Servers geï¿½ndert!"
     IDS_SOCKS5PROXYERR      "SOCKS 5 Proxy Fehler beim Benutzernamen oder Kennwort!"
 END
 
@@ -346,8 +379,8 @@ BEGIN
     IDS_HOSTUNREACHABLE     "Server unerreichbar!"
     IDS_CONNREFUSED         "Verbindung verweigert!"
     IDS_TTLEXPIRED          "TTL (Paketlaufzeit) abgelaufen!"
-    IDS_CMDNOTSUPPORTED     "SOCKS-Befehl nicht unterstützt!"
-    IDS_ADDRTYPENOTSUPPORTED "Adresstyp nicht unterstützt!"
+    IDS_CMDNOTSUPPORTED     "SOCKS-Befehl nicht unterstï¿½tzt!"
+    IDS_ADDRTYPENOTSUPPORTED "Adresstyp nicht unterstï¿½tzt!"
     IDS_UNKNOWNSOCKERR      "Unbekannter SOCKS5-Fehler %d!"
     IDS_UTF8                "UTF-8"
     IDS_ANSI                "ANSI (lokal) (0)"
@@ -361,8 +394,8 @@ BEGIN
     IDS_1251                "Kyrillisch Windows (1251)"
     IDS_1252                "Westlich Latin1 (1252)"
     IDS_1253                "Griechisch (1253)"
-    IDS_1254                "Türkisch (1254)"
-    IDS_1255                "Hebräisch (1255)"
+    IDS_1254                "Tï¿½rkisch (1254)"
+    IDS_1255                "Hebrï¿½isch (1255)"
     IDS_1256                "Arabisch (1256)"
     IDS_1257                "Baltisch (1257)"
     IDS_1258                "Vietnamesisch (1258)"
@@ -379,30 +412,30 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_20866               "Kyrillisch KOI8-R (20866)"
     IDS_OTHER               "Andere (manuell eingeben)"
-    IDS_SSH2_TOO_OLD        "Die Datei libssh2.dll ist zu alt für die Pageant-Funktionen!\nMinimal benötigte Version: %s."
-    IDS_AGENT_CONNECTERROR  "Verbindung zu ssh-agent (Pageant) fehlgeschlagen!\nSie können eine Linkdatei namens pageant.lnk im Pluginverzeichnis anlegen, um Pageant bei Bedarf zu starten, z.B. mit dem Befehl:\nc:\\path\\pageant.exe keyfilename"
+    IDS_SSH2_TOO_OLD        "Die Datei libssh2.dll ist zu alt fï¿½r die Pageant-Funktionen!\nMinimal benï¿½tigte Version: %s."
+    IDS_AGENT_CONNECTERROR  "Verbindung zu ssh-agent (Pageant) fehlgeschlagen!\nSie kï¿½nnen eine Linkdatei namens pageant.lnk im Pluginverzeichnis anlegen, um Pageant bei Bedarf zu starten, z.B. mit dem Befehl:\nc:\\path\\pageant.exe keyfilename"
     IDS_AGENT_REQUESTIDENTITIES 
-                            "Fehler beim Ermitteln der Identitäten vom ssh-Agenten!"
+                            "Fehler beim Ermitteln der Identitï¿½ten vom ssh-Agenten!"
     IDS_AGENT_AUTHFAILED    "Authentifizierung via Agenten fehlgeschlagen!"
     IDS_AGENT_AUTHSUCCEEDED "Authentifizierung via Agenten erfolgreich!"
-    IDS_AGENT_NOIDENTITY    "Fehler beim Ermitteln der Identität vom ssh-Agenten!"
+    IDS_AGENT_NOIDENTITY    "Fehler beim Ermitteln der Identitï¿½t vom ssh-Agenten!"
     IDS_AGENT_TRYING1       "Versuche Benutzer """
-    IDS_AGENT_TRYING2       """ mit Schlüssel """
+    IDS_AGENT_TRYING2       """ mit Schlï¿½ssel """
     IDS_AGENT_TRYING3       """ via Agenten zu authentifizieren..."
     IDS_NO_PROXY            "Kein Proxy (direkte Verbindung)"
     IDS_HTTP_PROXY          "HTTP CONNECT: "
-    IDS_ADD_PROXY           "Neuen Proxy hinzufügen..."
+    IDS_ADD_PROXY           "Neuen Proxy hinzufï¿½gen..."
     IDS_ERROR_INUSE         "Fehler, dieser Proxy wird von mindestens einer Verbindung benutzt:"
-    IDS_PROXY_PASS_TITLE    "Proxy-Password für Benutzer: "
+    IDS_PROXY_PASS_TITLE    "Proxy-Password fï¿½r Benutzer: "
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_PASS_TITLE          "Server-Passwort für Benutzer: "
-    IDS_PASS_CHANGE_REQUEST "Der Server fordert Sie dazu auf, Ihr Passwort zu ändern. Neues Passwort:"
-    IDS_DLL_VERSION         "Sie benötigen libssh2 Version 1.7.0 oder neuer für Dateien > 2 GB über SCP."
-    IDS_NO_2GB_SUPPORT      "Der Server unterstützt möglicherweise keinen Dateitransfer >2GB via SCP. Trotzdem versuchen?"
-    IDS_HELP_PASSWORD       "Aus Sicherheitsgründen sollten Sie Kennwörter nur durch ein Hauptkennwort geschützt speichern.\n\nFalls Sie 2 Kennwörter (für privaten Schlüssel und Login) benötigen, geben Sie sie wie folgt an:\n\n""SchlüsselKennwort"",""LoginKennwort"""
+    IDS_PASS_TITLE          "Server-Passwort fï¿½r Benutzer: "
+    IDS_PASS_CHANGE_REQUEST "Der Server fordert Sie dazu auf, Ihr Passwort zu ï¿½ndern. Neues Passwort:"
+    IDS_DLL_VERSION         "Sie benï¿½tigen libssh2 Version 1.7.0 oder neuer fï¿½r Dateien > 2 GB ï¿½ber SCP."
+    IDS_NO_2GB_SUPPORT      "Der Server unterstï¿½tzt mï¿½glicherweise keinen Dateitransfer >2GB via SCP. Trotzdem versuchen?"
+    IDS_HELP_PASSWORD       "Aus Sicherheitsgrï¿½nden sollten Sie Kennwï¿½rter nur durch ein Hauptkennwort geschï¿½tzt speichern.\n\nFalls Sie 2 Kennwï¿½rter (fï¿½r privaten Schlï¿½ssel und Login) benï¿½tigen, geben Sie sie wie folgt an:\n\n""Schlï¿½sselKennwort"",""LoginKennwort"""
 END
 #endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
@@ -827,7 +860,7 @@ EXSTYLE WS_EX_NOPARENTNOTIFY
 CAPTION "Connecter au serveur SFTP"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    LTEXT           "&Connecter à : (serveur/chemin ou serveur:port/chemin)", IDC_STATIC,3,3,179,8
+    LTEXT           "&Connecter ï¿½ : (serveur/chemin ou serveur:port/chemin)", IDC_STATIC,3,3,179,8
     EDITTEXT        1000,5,17,266,12,ES_AUTOHSCROLL
     CONTROL         "Auto",1027,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,183,2,27,10
     CONTROL         "IPv4",1028,"Button",BS_AUTORADIOBUTTON,212,2,29,10
@@ -840,19 +873,19 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,58,125,8
     PUSHBUTTON      "Changer le mot de passe...",IDC_EDITPASS,5,71,266,14, NOT WS_VISIBLE
     EDITTEXT        1002,5,68,266,12,ES_PASSWORD | ES_AUTOHSCROLL
-    CONTROL         "Protéger le mot de passe avec mot de passe maître (TC>=7.5)",IDC_CRYPTPASS,
+    CONTROL         "Protï¿½ger le mot de passe avec mot de passe maï¿½tre (TC>=7.5)",IDC_CRYPTPASS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,82,266,10
     GROUPBOX        "Certificat client d'authentification:",IDC_STATIC,5,92,266,59
-    LTEXT           "Fichier clé publique (*.pub):",IDC_STATIC,10,103,100,8
+    LTEXT           "Fichier clï¿½ publique (*.pub):",IDC_STATIC,10,103,100,8
     EDITTEXT        1004,10,112,239,12,ES_AUTOHSCROLL
     PUSHBUTTON      ">>",1019,250,112,16,12
-    LTEXT           "Fichier clé privée (*.pem):",IDC_STATIC,10,126,253,8
+    LTEXT           "Fichier clï¿½ privï¿½e (*.pem):",IDC_STATIC,10,126,253,8
     EDITTEXT        1003,10,136,239,12,ES_AUTOHSCROLL
     PUSHBUTTON      ">>",1020,250,136,16,12
     PUSHBUTTON      "?",1024,254,100,12,10
-    CONTROL         "Compresser avec ZLIB (Attention: peut échouer sur certains serveurs)",1008,
+    CONTROL         "Compresser avec ZLIB (Attention: peut ï¿½chouer sur certains serveurs)",1008,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,152,266,8
-    CONTROL         "Journal &détaillé (cibler les erreurs pour déboguer)",1007,
+    CONTROL         "Journal &dï¿½taillï¿½ (cibler les erreurs pour dï¿½boguer)",1007,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,162,233,8
     CONTROL         "Envoyer la commande pour maintenir la connexion (secondes):",IDC_KEEP_ALIVE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,172,220,8
@@ -861,16 +894,16 @@ BEGIN
     CONTROL         "Utiliser SCP pour tout (pas d'SFTP)",IDC_SCP_ALL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,192,146,8
     LTEXT           "System:",IDC_STATIC,155,188,34,8
     COMBOBOX        IDC_SYSTEM,189,186,78,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Codage des caractères envoyés au serveur:",IDC_STATIC,
+    CONTROL         "Codage des caractï¿½res envoyï¿½s au serveur:",IDC_STATIC,
                     "Static",SS_SIMPLE | WS_GROUP,5,201,143,8
     COMBOBOX        IDC_UTF8,149,199,104,126,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "?",IDC_UTF8HELP,254,200,12,10
-    GROUPBOX        " D&roits utilis. sur nouv. fichiers¦dossiers créées : ",IDC_STATIC,5,212,266,26
+    GROUPBOX        " D&roits utilis. sur nouv. fichiersï¿½dossiers crï¿½ï¿½es : ",IDC_STATIC,5,212,266,26
     CONTROL         "Nouv. fichiers (Envoi):",IDC_STATIC,"Static",SS_SIMPLE | WS_GROUP,13,224,70,8
     EDITTEXT        1025,87,222,28,12,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "Nouv. dossiers:",IDC_STATIC,175,224,58,8
     EDITTEXT        1026,236,222,28,12,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Agencements “Proxy”:",IDC_STATIC,5,241,266,8
+    LTEXT           "Agencements ï¿½Proxyï¿½:",IDC_STATIC,5,241,266,8
     COMBOBOX        IDC_PROXYCOMBO,5,251,244,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      ">>",IDC_PROXYBUTTON,251,240,20,14
     PUSHBUTTON      "Supprimer le dernier proxy",IDC_DELETELAST,5,266,90,14
@@ -880,31 +913,31 @@ END
 
 IDD_PROPERTIES DIALOGEX 0, 0, 279, 214
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Propriétés"
+CAPTION "Propriï¿½tï¿½s"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Confirmer",IDOK,153,193,50,14
     PUSHBUTTON      "Annuler",IDCANCEL,222,193,50,14
-    GROUPBOX        "Propriétés du fichier",IDC_STATIC,7,7,265,93
+    GROUPBOX        "Propriï¿½tï¿½s du fichier",IDC_STATIC,7,7,265,93
     LTEXT           "Nom :",IDC_STATIC,16,20,50,8
-    LTEXT           "Propriétaire :",IDC_STATIC,16,33,50,8
+    LTEXT           "Propriï¿½taire :",IDC_STATIC,16,33,50,8
     LTEXT           "Groupe :",IDC_STATIC,16,46,48,8
     LTEXT           "Autorisations :",IDC_STATIC,16,59,50,8
     LTEXT           "Taille :",IDC_STATIC,16,72,50,8
-    LTEXT           "Dernière modif. :",IDC_STATIC,16,85,50,8
+    LTEXT           "Derniï¿½re modif. :",IDC_STATIC,16,85,50,8
     EDITTEXT        IDC_PROP_NAME,72,20,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_PROP_OWNER,72,33,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_PROP_GROUP,72,46,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_PROP_PERMISSIONS,72,59,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_PROP_SIZE,72,72,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_PROP_MODIFIED,72,85,194,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    GROUPBOX        "Réponse d'état brute (“STAT”)",IDC_STATIC,7,103,265,88
+    GROUPBOX        "Rï¿½ponse d'ï¿½tat brute (ï¿½STATï¿½)",IDC_STATIC,7,103,265,88
     EDITTEXT        IDC_PROP_RAWSTAT,15,113,250,73,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
 IDD_PROXY DIALOGEX 0, 0, 280, 121
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Agencements “Proxy”"
+CAPTION "Agencements ï¿½Proxyï¿½"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     CONTROL         "Pas de pro&xy",IDC_NOPROXY,"Button",BS_AUTORADIOBUTTON,
@@ -918,17 +951,17 @@ BEGIN
     CONTROL         "Proxy host:",IDC_STATIC,"Static",SS_SIMPLE | WS_GROUP,
                     12,36,52,8
     EDITTEXT        1018,77,34,193,12,ES_AUTOHSCROLL
-    CONTROL         "Nom utilis. “Proxy”:",IDC_STATIC,"Static",SS_SIMPLE | 
+    CONTROL         "Nom utilis. ï¿½Proxyï¿½:",IDC_STATIC,"Static",SS_SIMPLE | 
                     WS_GROUP,12,52,64,8
     EDITTEXT        1012,77,50,193,12,ES_AUTOHSCROLL
-    CONTROL         "Mot de p. “Proxy”:",IDC_STATIC,"Static",SS_SIMPLE | 
+    CONTROL         "Mot de p. ï¿½Proxyï¿½:",IDC_STATIC,"Static",SS_SIMPLE | 
                     WS_GROUP,12,67,59,8
     EDITTEXT        1013,77,66,193,12,ES_PASSWORD | ES_AUTOHSCROLL
     PUSHBUTTON      "?",1014,256,20,12,10
-    GROUPBOX        "Agencements “Proxy”",IDC_STATIC,7,7,266,89
+    GROUPBOX        "Agencements ï¿½Proxyï¿½",IDC_STATIC,7,7,266,89
     PUSHBUTTON      "Changer le mot de passe...",IDC_EDITPASS,77,65,193,14,
                     NOT WS_VISIBLE
-    CONTROL         "Protéger le mot de passe avec mot de passe maître (TC>=7.5)",
+    CONTROL         "Protï¿½ger le mot de passe avec mot de passe maï¿½tre (TC>=7.5)",
                     IDC_CRYPTPASS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,
                     82,257,10
     DEFPUSHBUTTON   "Confirmer",1,167,100,50,14
@@ -978,95 +1011,95 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    12001                   "A. F.actives hors contrôle"
-    12002                   "Délai dépassé"
-    12003                   "Erreur étendue"
+    12001                   "A. F.actives hors contrï¿½le"
+    12002                   "Dï¿½lai dï¿½passï¿½"
+    12003                   "Erreur ï¿½tendue"
     12004                   "Erreur interne"
     12005                   "URL incongrue"
-    12006                   "Schéma pas reconnu"
-    12007                   "Nom pas résolu"
+    12006                   "Schï¿½ma pas reconnu"
+    12007                   "Nom pas rï¿½solu"
     12008                   "Protocole introuvable"
     12009                   "Option incongrue"
     12010                   "Mauvaise longueur d'option"
     12011                   "Option pas configurable"
     12012                   "Fermeture"
-    12013                   "Nom utilis. erroné"
-    12014                   "M. de .passe erroné"
-    12015                   "Échec d'inscription"
+    12013                   "Nom utilis. erronï¿½"
+    12014                   "M. de .passe erronï¿½"
+    12015                   "ï¿½chec d'inscription"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    12016                   "Opération pas valable"
-    12017                   "Opération annulée"
-    12018                   "Type d'a.f.a. erroné"
-    12019                   "État d'a.f.a. incorrect"
-    12020                   "N'est pas une requête proxy"
+    12016                   "Opï¿½ration pas valable"
+    12017                   "Opï¿½ration annulï¿½e"
+    12018                   "Type d'a.f.a. erronï¿½"
+    12019                   "ï¿½tat d'a.f.a. incorrect"
+    12020                   "N'est pas une requï¿½te proxy"
     12021                   "Valeur du Registre introuvable"
-    12022                   "Mauvais paramètre de Registre"
-    12023                   "Pas d'accès direct"
+    12022                   "Mauvais paramï¿½tre de Registre"
+    12023                   "Pas d'accï¿½s direct"
     12024                   "Pas de contexte"
     12025                   "Pas de retour"
-    12026                   "Requête en souffrance"
-    12027                   "Format erroné"
-    12028                   "Élément introuvable"
+    12026                   "Requï¿½te en souffrance"
+    12027                   "Format erronï¿½"
+    12028                   "ï¿½lï¿½ment introuvable"
     12029                   "Ne peut connecter"
-    12030                   "Connexion abandonnée"
-    12031                   "Connexion rétablie"
+    12030                   "Connexion abandonnï¿½e"
+    12031                   "Connexion rï¿½tablie"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    12032                   "Forcer à retenter"
-    12033                   "Requête proxy incongrue"
-    12034                   "Nécessite UI"
-    12035                   "Inconnu¦e"
+    12032                   "Forcer ï¿½ retenter"
+    12033                   "Requï¿½te proxy incongrue"
+    12034                   "Nï¿½cessite UI"
+    12035                   "Inconnuï¿½e"
     12036                   "L'a.f.a. existe"
     12037                   "Date de certificat pas valable"
     12038                   "CN du certificat pas valable"
-    12039                   "Renvoyer http –> https"
-    12040                   "Renvoyer https –> http"
-    12041                   "Sécurité mixte"
-    12042                   "*CHG Post* n'est pas sécurisé"
-    12043                   "*Post* n'est pas sécurisé"
+    12039                   "Renvoyer http ï¿½> https"
+    12040                   "Renvoyer https ï¿½> http"
+    12041                   "Sï¿½curitï¿½ mixte"
+    12042                   "*CHG Post* n'est pas sï¿½curisï¿½"
+    12043                   "*Post* n'est pas sï¿½curisï¿½"
     12044                   "Un certificat client est requis pour authentification"
     12045                   "Agence de certification pas valable"
-    12046                   "L'authentification client n'a pas été établie"
-    12047                   "Échec de couche async."
+    12046                   "L'authentification client n'a pas ï¿½tï¿½ ï¿½tablie"
+    12047                   "ï¿½chec de couche async."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    12048                   "Changer le schéma de renvoi"
+    12048                   "Changer le schï¿½ma de renvoi"
     12049                   "Dialogue en souffrance"
     12050                   "Dialogue *Retenter*"
-    12051                   "Inconnu¦e"
+    12051                   "Inconnuï¿½e"
     12052                   "Soumettre le renvoi HTTPS -> HTTP"
-    12053                   "Insérer le cédérom"
+    12053                   "Insï¿½rer le cï¿½dï¿½rom"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_F7NEW               "_F7=nouvelle connexion.txt"
-    IDS_HELPTEXT            "Aide du module:\nF7:\tCréer nouvelle connexion\nF8/Suppr:\tSupprimer la connexion\nEntrée\tConnecter\nAlt+Entrée\tChanger d'options"
+    IDS_HELPTEXT            "Aide du module:\nF7:\tCrï¿½er nouvelle connexion\nF8/Suppr:\tSupprimer la connexion\nEntrï¿½e\tConnecter\nAlt+Entrï¿½e\tChanger d'options"
     IDS_QUICKCONNECT        "_Connexion rapide"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_HELP_CAPTION        "Aide"
-    IDS_HELP_PROXY          "On peut choisir de connecter directement, ou de définir un serveur proxy de la formeY proxy(:port). Si le proxy requiert nom-utilisateur¦mot de passe, on doit les entrer ici. Le proxy doit permettre la commande CONNECT au port du serveur SSH, ou doit supporter le protocole SOCKS."
-    IDS_HELP_CERT           "On peut entrer ici l'emplacement de la paire de clés publique¦privée our un certificat client d'authentification.\nLes clés doivent être au format OpenSSH .\n\nSuivre ces étapes pour convertir une clé Putty (*.ppk) en format OpenSSH:\n1.Lancer puttygen.exe\n2. Y charger la clé Putty\n3. Ne cliquez pas sur ""Save public key"", cela crée une clé incompatible!\n   Sélectionnez le texte dans la section ""Public key for pasting into OpenSSH..."" et appuyez sur Ctrl+C (copier dans le presse-papier)\n4. Créez un nouveau fichier avec l'extension .pub (Maj+F4 dans Total Commander) et appuyez sur Ctrl+V (Coller)\n5. Choisir “Exporter clé SSH” au menu “Conversions” pour enregistrer le fichier *.pem."
-    IDS_CONNECT_TO          "Connexion à : "
+    IDS_HELP_PROXY          "On peut choisir de connecter directement, ou de dï¿½finir un serveur proxy de la formeY proxy(:port). Si le proxy requiert nom-utilisateurï¿½mot de passe, on doit les entrer ici. Le proxy doit permettre la commande CONNECT au port du serveur SSH, ou doit supporter le protocole SOCKS."
+    IDS_HELP_CERT           "On peut entrer ici l'emplacement de la paire de clï¿½s publiqueï¿½privï¿½e our un certificat client d'authentification.\nLes clï¿½s doivent ï¿½tre au format OpenSSH .\n\nSuivre ces ï¿½tapes pour convertir une clï¿½ Putty (*.ppk) en format OpenSSH:\n1.Lancer puttygen.exe\n2. Y charger la clï¿½ Putty\n3. Ne cliquez pas sur ""Save public key"", cela crï¿½e une clï¿½ incompatible!\n   Sï¿½lectionnez le texte dans la section ""Public key for pasting into OpenSSH..."" et appuyez sur Ctrl+C (copier dans le presse-papier)\n4. Crï¿½ez un nouveau fichier avec l'extension .pub (Maj+F4 dans Total Commander) et appuyez sur Ctrl+V (Coller)\n5. Choisir ï¿½Exporter clï¿½ SSHï¿½ au menu ï¿½Conversionsï¿½ pour enregistrer le fichier *.pem."
+    IDS_CONNECT_TO          "Connexion ï¿½ : "
     IDS_VIA_PROXY           "Via proxy :"
-    IDS_ERR_PROXYCONNECT    "Erreur : échec de connexion au PROXY !"
-    IDS_ERR_SERVERCONNECT   "Erreur : échec de connexion au serveur donné !"
+    IDS_ERR_PROXYCONNECT    "Erreur : ï¿½chec de connexion au PROXY !"
+    IDS_ERR_SERVERCONNECT   "Erreur : ï¿½chec de connexion au serveur donnï¿½ !"
     IDS_VIA_PROXY_CONNECT   "Erreur : n'a pu connecter au serveur via le proxy !"
-    IDS_ERR_INIT_SSH2       "Erreur : n'a pu initialiser la connexion «ssh2» !"
+    IDS_ERR_INIT_SSH2       "Erreur : n'a pu initialiser la connexion ï¿½ssh2ï¿½ !"
     IDS_ERR_SSH_SESSION     "Erreur : n'a pu lancer la session SSH :\n"
-    IDS_ERR_AUTH_PUBKEY     "Erreur : échec d'authentification par certificat client !\n"
-    IDS_ERR_AUTH_PASSWORD   "Erreur : échec d'authentification par mot de passe !"
-    IDS_ERR_AUTH_KEYBDINT   "Erreur : échec d'authentification par clavier interactif !"
+    IDS_ERR_AUTH_PUBKEY     "Erreur : ï¿½chec d'authentification par certificat client !\n"
+    IDS_ERR_AUTH_PASSWORD   "Erreur : ï¿½chec d'authentification par mot de passe !"
+    IDS_ERR_AUTH_KEYBDINT   "Erreur : ï¿½chec d'authentification par clavier interactif !"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -1076,71 +1109,71 @@ BEGIN
     IDS_PROXY_PASSWORD      "Mot de passe *Proxy* :"
     IDS_USERNAME_FOR        "Nom utilisateur SFTP pour "
     IDS_INITSSH2            "Initialisation SSH2..."
-    IDS_SET_COMPRESSION     "Établir la compression"
-    IDS_SESSION_STARTUP     "Lancer la session…"
-    IDS_SSH_LOGIN           "Inscription via SSH2…"
+    IDS_SET_COMPRESSION     "ï¿½tablir la compression"
+    IDS_SESSION_STARTUP     "Lancer la sessionï¿½"
+    IDS_SSH_LOGIN           "Inscription via SSH2ï¿½"
     IDS_SERVER_FINGERPRINT  "Empreinte de cryptage du serveur :"
     IDS_CONNECTION_FIRSTTIME 
-                            "C'est la première utilisation de cette connexion.\nOn doit vérifier que l'empreinte de cryptage de l'hôte ci-après correspond à celle du serveur actuel :\n\n"
-    IDS_FINGERPRINT_CHANGED "ATTENTION !\nL'empreinte de cryptage de l'hôte a changé !\nOn doit s'assurer que la nouvelle correspond à celle du serveur:\n\n"
+                            "C'est la premiï¿½re utilisation de cette connexion.\nOn doit vï¿½rifier que l'empreinte de cryptage de l'hï¿½te ci-aprï¿½s correspond ï¿½ celle du serveur actuel :\n\n"
+    IDS_FINGERPRINT_CHANGED "ATTENTION !\nL'empreinte de cryptage de l'hï¿½te a changï¿½ !\nOn doit s'assurer que la nouvelle correspond ï¿½ celle du serveur:\n\n"
     IDS_FINGERPRINT         "Empreinte de cryptage: "
-    IDS_CONNECTING          "Connexion…"
-    IDS_USER_AUTH_LIST      "Recherche des méthodes d'authentification assumées…"
-    IDS_SUPPORTED_AUTH_METHODS "Méthodes d'authentification assumées :"
-    IDS_ERR_LOAD_PUBKEY     "Ne peut ouvrir le fichier de clé publique !\n"
+    IDS_CONNECTING          "Connexionï¿½"
+    IDS_USER_AUTH_LIST      "Recherche des mï¿½thodes d'authentification assumï¿½esï¿½"
+    IDS_SUPPORTED_AUTH_METHODS "Mï¿½thodes d'authentification assumï¿½es :"
+    IDS_ERR_LOAD_PUBKEY     "Ne peut ouvrir le fichier de clï¿½ publique !\n"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ERR_LOAD_PRIVKEY    "Ne peut ouvrir le fichier de clé privée !\n"
+    IDS_ERR_LOAD_PRIVKEY    "Ne peut ouvrir le fichier de clï¿½ privï¿½e !\n"
     IDS_ERR_PUBKEY_WRONG_FORMAT 
-                            "Le fichier de clé publique n'est pas au bon format, voir les instructions dans SFTP_Lisez_moi.txt!"
+                            "Le fichier de clï¿½ publique n'est pas au bon format, voir les instructions dans SFTP_Lisez_moi.txt!"
     IDS_PASSPHRASE          "Phrase-passe SFTP pour "
-    IDS_KEYPASSPHRASE       "Phrase-passe de clé privée :"
+    IDS_KEYPASSPHRASE       "Phrase-passe de clï¿½ privï¿½e :"
     IDS_AUTH_PUBKEY_FOR     "Authentification via certificat client pour l'utilisateur : "
     IDS_AUTH_PUBKEY         "Authentification via certificat client"
     IDS_AUTH_PASSWORD_FOR   "Authentification via mot de passe pour l'utilisateur : "
     IDS_AUTH_PASSWORD       "Authentifier par mot de passe"
     IDS_AUTH_KEYBDINT_FOR   "Authentifier via clavier interactif pour l'utilisateur : "
     IDS_AUTH_KEYBDINT       "Authentifier par clavier interactif"
-    IDS_FTP_INIT            "Connexion SFTP en cours…"
-    IDS_DISCONNECTING       "Déconnecter…"
-    IDS_GET_DIRECTORY       "Obtenir un répertoire"
-    IDS_PROXY_CONNECT       "Connexion Proxy –> Serveur…"
-    IDS_ERR_GETADDRINFO     "N'a pu résoudre l'hôte, échec de *getaddrinfo* !"
-    IDS_GET_DIR             "Obtenir le répertoire : "
+    IDS_FTP_INIT            "Connexion SFTP en coursï¿½"
+    IDS_DISCONNECTING       "Dï¿½connecterï¿½"
+    IDS_GET_DIRECTORY       "Obtenir un rï¿½pertoire"
+    IDS_PROXY_CONNECT       "Connexion Proxy ï¿½> Serveurï¿½"
+    IDS_ERR_GETADDRINFO     "N'a pu rï¿½soudre l'hï¿½te, ï¿½chec de *getaddrinfo* !"
+    IDS_GET_DIR             "Obtenir le rï¿½pertoire : "
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ERR_GET_DIR         "Répertoire encore fermé : "
-    IDS_MK_DIR              "Créer le répertoire: "
-    IDS_ERR_MK_DIR          "Répertoire pas créé : "
+    IDS_ERR_GET_DIR         "Rï¿½pertoire encore fermï¿½ : "
+    IDS_MK_DIR              "Crï¿½er le rï¿½pertoire: "
+    IDS_ERR_MK_DIR          "Rï¿½pertoire pas crï¿½ï¿½ : "
     IDS_RENFR               "Renommer de : "
     IDS_RENTO               "Renommer en :"
-    IDS_ERR_RENAME          "ÉCHEC de *Renommer* : "
-    IDS_DOWNLOAD            "Télécharger le fichier : "
+    IDS_ERR_RENAME          "ï¿½CHEC de *Renommer* : "
+    IDS_DOWNLOAD            "Tï¿½lï¿½charger le fichier : "
     IDS_UPLOAD              "Envoyer le fichier : "
     IDS_DELETE              "Supprimer le fichier : "
-    IDS_ERR_DELETE          "ÉCHEC de *Supprimer* : "
+    IDS_ERR_DELETE          "ï¿½CHEC de *Supprimer* : "
     IDS_AUTO                "automatique"
     IDS_YES                 "Oui"
     IDS_NO                  "Non"
-    IDS_OUTOFREACH          "La cible du lien se trouve au dehors du répertoire de base du module :\n"
-    IDS_FOLLOWLINKROOT      "\nSi l'on suit ce lien, le répertoire de base du module sera changé en répertoire de base / du serveur!"
+    IDS_OUTOFREACH          "La cible du lien se trouve au dehors du rï¿½pertoire de base du module :\n"
+    IDS_FOLLOWLINKROOT      "\nSi l'on suit ce lien, le rï¿½pertoire de base du module sera changï¿½ en rï¿½pertoire de base / du serveur!"
     IDS_SOCKS5PROXYERR      "SOCKS 5 Proxy erreur dans le nom ou le mot de passe!"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_GENERALSOCKSFAILURE "Erreur générale du proxy SOCKS!"
-    IDS_CONNNOTALLOWED      "Connexion pas autorisée par les règles du proxy!"
-    IDS_NETUNREACHABLE      "Réseau pas accessible!"
+    IDS_GENERALSOCKSFAILURE "Erreur gï¿½nï¿½rale du proxy SOCKS!"
+    IDS_CONNNOTALLOWED      "Connexion pas autorisï¿½e par les rï¿½gles du proxy!"
+    IDS_NETUNREACHABLE      "Rï¿½seau pas accessible!"
     IDS_HOSTUNREACHABLE     "Serveur pas accessible!"
-    IDS_CONNREFUSED         "Connexion refusée!"
-    IDS_TTLEXPIRED          "TTL (temps de vie du paquet) expirée!"
-    IDS_CMDNOTSUPPORTED     "Commande SOCKS pas supportée!"
-    IDS_ADDRTYPENOTSUPPORTED "Type d'adresse pas supportée!"
+    IDS_CONNREFUSED         "Connexion refusï¿½e!"
+    IDS_TTLEXPIRED          "TTL (temps de vie du paquet) expirï¿½e!"
+    IDS_CMDNOTSUPPORTED     "Commande SOCKS pas supportï¿½e!"
+    IDS_ADDRTYPENOTSUPPORTED "Type d'adresse pas supportï¿½e!"
     IDS_UNKNOWNSOCKERR      "Erreur SOCKS5 inconnue %d!"
     IDS_UTF8                "UTF-8"
     IDS_ANSI                "ANSI (locale) (0)"
@@ -1155,15 +1188,15 @@ BEGIN
     IDS_1252                "Latin1 occidental (1252)"
     IDS_1253                "Grec (1253)"
     IDS_1254                "Turc (1254)"
-    IDS_1255                "Hébreu (1255)"
+    IDS_1255                "Hï¿½breu (1255)"
     IDS_1256                "Arabe (1256)"
     IDS_1257                "Balte (1257)"
     IDS_1258                "Vietnamien (1258)"
     IDS_936                 "Chinois continental (936)"
-    IDS_950                 "Chinois Taïwan (950)"
+    IDS_950                 "Chinois Taï¿½wan (950)"
     IDS_932                 "Japonais (932)"
-    IDS_949                 "Coréen (949)"
-    IDS_874                 "Thaï (874)"
+    IDS_949                 "Corï¿½en (949)"
+    IDS_874                 "Thaï¿½ (874)"
     IDS_437                 "DOS-USA (437)"
     IDS_850                 "DOS-LATIN1 (850)"
 END
@@ -1172,20 +1205,20 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_20866               "Cyrillique KOI8-R (20866)"
     IDS_OTHER               "Autre (saisir manuellement)"
-    IDS_SSH2_TOO_OLD        "Le fichier libssh2.dll est trop vieux pour accéder à Pageant!\nLa version minimale est %s."
-    IDS_AGENT_CONNECTERROR  "Erreur de connextion à l'agent SSH (Pageant)!\nVous pouvez créer un lien nommé pageant.lnk dans le répertoire du plugin qui lance pageant si nécessaire, par ex. avec la commande\nc:\\path\\pageant.exe keyfile"
+    IDS_SSH2_TOO_OLD        "Le fichier libssh2.dll est trop vieux pour accï¿½der ï¿½ Pageant!\nLa version minimale est %s."
+    IDS_AGENT_CONNECTERROR  "Erreur de connextion ï¿½ l'agent SSH (Pageant)!\nVous pouvez crï¿½er un lien nommï¿½ pageant.lnk dans le rï¿½pertoire du plugin qui lance pageant si nï¿½cessaire, par ex. avec la commande\nc:\\path\\pageant.exe keyfile"
     IDS_AGENT_REQUESTIDENTITIES 
-                            "Erreur, ne peut pas charger les identités de l'agent ssh!"
+                            "Erreur, ne peut pas charger les identitï¿½s de l'agent ssh!"
     IDS_AGENT_AUTHFAILED    "Erreur d'authentification via agent ssh!"
-    IDS_AGENT_AUTHSUCCEEDED "Succès d'authentification via agent ssh!"
-    IDS_AGENT_NOIDENTITY    "Erreur, ne peut pas charger l'identité de l'agent ssh!"
+    IDS_AGENT_AUTHSUCCEEDED "Succï¿½s d'authentification via agent ssh!"
+    IDS_AGENT_NOIDENTITY    "Erreur, ne peut pas charger l'identitï¿½ de l'agent ssh!"
     IDS_AGENT_TRYING1       "Essai d'authentifier l'utilisateur """
-    IDS_AGENT_TRYING2       """ par la clé """
+    IDS_AGENT_TRYING2       """ par la clï¿½ """
     IDS_AGENT_TRYING3       """ en utilisant l'agent..."
     IDS_NO_PROXY            "Pas de proxy (connexion directe)"
     IDS_HTTP_PROXY          "HTTP CONNECT: "
     IDS_ADD_PROXY           "Nouveau proxy..."
-    IDS_ERROR_INUSE         "Erreur, ce proxy est utilisé par au moins une connexion:"
+    IDS_ERROR_INUSE         "Erreur, ce proxy est utilisï¿½ par au moins une connexion:"
     IDS_PROXY_PASS_TITLE    "PROXY: Mot de passe pour l'utilisateur: "
 END
 
@@ -1193,8 +1226,8 @@ STRINGTABLE DISCARDABLE
 BEGIN
     IDS_PASS_TITLE          "Mot de passe pour l'utilisateur: "
     IDS_PASS_CHANGE_REQUEST "Le serveur demande que vous changez votre mot de passe. Nouveau mot de passe:"
-    IDS_DLL_VERSION         "Il vous faut libssh2 version 1.7.0 ou plus récent pour une taille > 2 GB par SCP."
-    IDS_NO_2GB_SUPPORT      "Le serveur ne supporte peut-être pas un transfert de fichiers >2GB par SCP! Essayer quand-même?"
+    IDS_DLL_VERSION         "Il vous faut libssh2 version 1.7.0 ou plus rï¿½cent pour une taille > 2 GB par SCP."
+    IDS_NO_2GB_SUPPORT      "Le serveur ne supporte peut-ï¿½tre pas un transfert de fichiers >2GB par SCP! Essayer quand-mï¿½me?"
 END
 #endif    // French (France) resources
 /////////////////////////////////////////////////////////////////////////////

@@ -212,16 +212,12 @@ BOOL LoadSSHLib()
 			p++;
 		else
 			p=dllname;
-		// Load libeay32.dll first, otherwise it will not be found!
 #ifdef WIN64
 		p[0]=0;
 		strlcat(dllname,"64\\zlibwapi.dll",sizeof(dllname)-1);
 		sshlib=(HINSTANCE)LoadLibrary(dllname);
 		p[0]=0;
 		strlcat(dllname,"64\\zlib1.dll",sizeof(dllname)-1);
-		sshlib=(HINSTANCE)LoadLibrary(dllname);
-		p[0]=0;
-		strlcat(dllname,"64\\libeay32.dll",sizeof(dllname)-1);
 		sshlib=(HINSTANCE)LoadLibrary(dllname);
 		p[0]=0;
 		strlcat(dllname,"64\\libssh2.dll",sizeof(dllname)-1);
@@ -234,13 +230,10 @@ BOOL LoadSSHLib()
 			strlcat(dllname,"x64\\zlib1.dll",sizeof(dllname)-1);
 			sshlib=(HINSTANCE)LoadLibrary(dllname);
 			p[0]=0;
-			strlcat(dllname,"x64\\libeay32.dll",sizeof(dllname)-1);
-			sshlib=(HINSTANCE)LoadLibrary(dllname);
-			p[0]=0;
 			strlcat(dllname,"x64\\libssh2.dll",sizeof(dllname)-1);
 			sshlib=(HINSTANCE)LoadLibrary(dllname);
 		}
-#else 
+#else
 		sshlib=NULL;
 #endif
 		if (!sshlib) {
@@ -249,9 +242,6 @@ BOOL LoadSSHLib()
 			sshlib=(HINSTANCE)LoadLibrary(dllname);
 			p[0]=0;
 			strlcat(dllname,"zlib1.dll",sizeof(dllname)-1);
-			sshlib=(HINSTANCE)LoadLibrary(dllname);
-			p[0]=0;
-			strlcat(dllname,"libeay32.dll",sizeof(dllname)-1);
 			sshlib=(HINSTANCE)LoadLibrary(dllname);
 			p[0]=0;
 			strlcat(dllname,"libssh2.dll",sizeof(dllname)-1);
@@ -264,16 +254,12 @@ BOOL LoadSSHLib()
 				p++;
 			else
 				p=dllname;
-			// Load libeay32.dll first, otherwise it will not be found!
-			p[0]=0;
 #ifdef WIN64
+			p[0]=0;
 			strlcat(dllname,"64\\zlibwapi.dll",sizeof(dllname)-1);
 			sshlib=(HINSTANCE)LoadLibrary(dllname);
 			p[0]=0;
 			strlcat(dllname,"64\\zlib1.dll",sizeof(dllname)-1);
-			sshlib=(HINSTANCE)LoadLibrary(dllname);
-			p[0]=0;
-			strlcat(dllname,"64\\libeay32.dll",sizeof(dllname)-1);
 			sshlib=(HINSTANCE)LoadLibrary(dllname);
 			p[0]=0;
 			strlcat(dllname,"64\\libssh2.dll",sizeof(dllname)-1);
@@ -284,9 +270,6 @@ BOOL LoadSSHLib()
 				sshlib=(HINSTANCE)LoadLibrary(dllname);
 				p[0]=0;
 				strlcat(dllname,"x64\\zlib1.dll",sizeof(dllname)-1);
-				sshlib=(HINSTANCE)LoadLibrary(dllname);
-				p[0]=0;
-				strlcat(dllname,"x64\\libeay32.dll",sizeof(dllname)-1);
 				sshlib=(HINSTANCE)LoadLibrary(dllname);
 				p[0]=0;
 				strlcat(dllname,"x64\\libssh2.dll",sizeof(dllname)-1);
@@ -301,17 +284,12 @@ BOOL LoadSSHLib()
 				strlcat(dllname,"zlib1.dll",sizeof(dllname)-1);
 				sshlib=(HINSTANCE)LoadLibrary(dllname);
 				p[0]=0;
-				strlcat(dllname,"libeay32.dll",sizeof(dllname)-1);
-				sshlib=(HINSTANCE)LoadLibrary(dllname);
-				p[0]=0;
 				strlcat(dllname,"libssh2.dll",sizeof(dllname)-1);
 				sshlib=(HINSTANCE)LoadLibrary(dllname);
 			}
 		}
 		if (!sshlib) {
 			// try also in Total Commander dir and the path!
-			// we don't need to load libeay32.dll then, because
-			// libssh2.dll would find it in the path anyway!
 			sshlib=(HINSTANCE)LoadLibrary("libssh2.dll");
 		}
 		if (!sshlib) {
@@ -351,18 +329,18 @@ BOOL LoadSSHLib()
 				}
 			}
 #ifdef WIN64
-			int res=MessageBox(GetActiveWindow(), "Please put the openssl dlls either\n- in the same directory as the plugin, or\n- in the Total Commander dir, or\n- in subdir \"64\" of the plugin or TC directory, or\n- somewhere in your PATH!\n\nDownload now?","Error",MB_YESNO | MB_ICONSTOP);
+			int res=MessageBox(GetActiveWindow(), "Please put libssh2.dll and zlib1.dll either\n- in the same directory as the plugin, or\n- in the Total Commander dir, or\n- in subdir \"64\" of the plugin or TC directory, or\n- somewhere in your PATH!\n\nYou can download libssh2 from https://www.libssh2.org","Error",MB_YESNO | MB_ICONSTOP);
 #else
-			int res=MessageBox(GetActiveWindow(), "Please put the openssl dlls either\n- in the same directory as the plugin, or\n- in the Total Commander dir, or\n- somewhere in your PATH!\n\nDownload now?","Error",MB_YESNO | MB_ICONQUESTION);
+			int res=MessageBox(GetActiveWindow(), "Please put libssh2.dll and zlib1.dll either\n- in the same directory as the plugin, or\n- in the Total Commander dir, or\n- somewhere in your PATH!\n\nYou can download libssh2 from https://www.libssh2.org","Error",MB_YESNO | MB_ICONQUESTION);
 #endif
 			if (res==IDYES)
-				ShellExecute(GetActiveWindow(),NULL,"https://www.ghisler.com/openssl",NULL,NULL,SW_SHOW);
+				ShellExecute(GetActiveWindow(),NULL,"https://www.libssh2.org",NULL,NULL,SW_SHOW);
 			return false;
 		}
 		SetErrorMode(olderrormode);
 		loadOK=true;
 		loadAgent=true;
-		
+
 		// the following will load all the functions!
 		#undef FUNCDEF
 		#undef FUNCDEF2
@@ -5167,7 +5145,7 @@ myint __stdcall PropDlgProc(HWND hWnd,unsigned int Message,WPARAM wParam,LPARAM 
 				p[strlen(p)]=ch;
 				hasField=true;
 			} else if (usys()) {
-				wp=FindStatStringW(g_statreplyW,L"Größe:",&chw);
+				wp=FindStatStringW(g_statreplyW,L"Grï¿½ï¿½e:",&chw);
 				if (wp) {
 					SetDlgItemTextW(hWnd,IDC_PROP_SIZE,wp);
 					wp[wcslen(wp)]=chw;
