@@ -1,0 +1,39 @@
+# Build artifacts
+*.wfx
+*.wfx64
+Release/
+Debug/
+x64/
+Win32/
+build/
+out/
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.idb
+*.tlog
+*.lastbuildstate
+
+# Visual Studio user-specific
+*.user
+*.suo
+*.cache
+*.aps
+*.ncb
+*.opt
+*.plg
+
+# Legacy project files
+*.dsp
+*.dsw
+
+# vcpkg
+vcpkg_installed/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
