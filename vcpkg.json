@@ -1,0 +1,12 @@
+{
+  "name": "sftpplug",
+  "version": "1.0.0",
+  "dependencies": [
+    {
+      "name": "libssh2",
+      "default-features": false,
+      "features": ["zlib"]
+    },
+    "zlib"
+  ]
+}

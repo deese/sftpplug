@@ -22,14 +22,19 @@ EXPORTS
 	FsRemoveDir
 	FsRemoveDirW
 	FsSetAttr
+	FsSetAttrW
 	FsSetTime
 	FsSetTimeW
 	FsStatusInfo
+	FsStatusInfoW
 	FsGetDefRootName
 	FsSetDefaultParams
 	FsDisconnect
+	FsDisconnectW
 	FsExtractCustomIcon
+	FsExtractCustomIconW
 	FsGetBackgroundFlags
+	FsSetCryptCallbackW
 	FsServerSupportsChecksums
 	FsServerSupportsChecksumsW
 	FsStartFileChecksum
