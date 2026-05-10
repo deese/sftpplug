@@ -1,0 +1,125 @@
+name: Build SFTP Plugin
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-cmake:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [Win32, x64]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgGitCommitId: 'c202ce14e324c784584f44a3d9b7718578d3b926'
+
+      - name: Configure CMake
+        run: |
+          cmake -B ${{github.workspace}}/build -S ${{github.workspace}} `
+            -A ${{ matrix.arch }} `
+            -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --config Release
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $dist = "${{github.workspace}}/dist"
+          New-Item -ItemType Directory -Path $dist -Force
+
+          # Copy plugin binary
+          $plugin = Get-ChildItem -Path "${{github.workspace}}/build/Release" -Filter "sftpplug.wfx*" | Select-Object -First 1
+          Copy-Item $plugin.FullName -Destination $dist
+
+          # Determine vcpkg triplet
+          $triplet = "${{ matrix.arch == 'x64' && 'x64-windows' || 'x86-windows' }}"
+          $vcpkgBin = "${{github.workspace}}/vcpkg_installed/$triplet/bin"
+
+          # Copy runtime DLLs
+          if (Test-Path "$vcpkgBin/libssh2.dll") {
+            Copy-Item "$vcpkgBin/libssh2.dll" -Destination $dist
+          }
+          if (Test-Path "$vcpkgBin/zlib1.dll") {
+            Copy-Item "$vcpkgBin/zlib1.dll" -Destination $dist
+          }
+          if (Test-Path "$vcpkgBin/zlibd1.dll") {
+            Copy-Item "$vcpkgBin/zlibd1.dll" -Destination $dist
+          }
+
+          Get-ChildItem -Path $dist
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sftpplug-${{ matrix.arch }}
+          path: ${{github.workspace}}/dist/*
+
+  build-msbuild:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [Win32, x64]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgGitCommitId: 'c202ce14e324c784584f44a3d9b7718578d3b926'
+
+      - name: Integrate vcpkg
+        run: |
+          & "$env:VCPKG_ROOT/vcpkg.exe" integrate install
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build
+        run: |
+          msbuild sftpplug.sln /p:Configuration=Release /p:Platform=${{ matrix.arch }}
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $dist = "${{github.workspace}}/dist"
+          New-Item -ItemType Directory -Path $dist -Force
+
+          # Copy plugin binary
+          $plugin = Get-ChildItem -Path "${{github.workspace}}/wfx" -Filter "sftpplug.wfx*" | Select-Object -First 1
+          Copy-Item $plugin.FullName -Destination $dist
+
+          # Determine vcpkg triplet
+          $triplet = "${{ matrix.arch == 'x64' && 'x64-windows' || 'x86-windows' }}"
+          $vcpkgBin = "${{github.workspace}}/vcpkg_installed/$triplet/bin"
+
+          # Copy runtime DLLs
+          if (Test-Path "$vcpkgBin/libssh2.dll") {
+            Copy-Item "$vcpkgBin/libssh2.dll" -Destination $dist
+          }
+          if (Test-Path "$vcpkgBin/zlib1.dll") {
+            Copy-Item "$vcpkgBin/zlib1.dll" -Destination $dist
+          }
+          if (Test-Path "$vcpkgBin/zlibd1.dll") {
+            Copy-Item "$vcpkgBin/zlibd1.dll" -Destination $dist
+          }
+
+          Get-ChildItem -Path $dist
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sftpplug-${{ matrix.arch }}-msbuild
+          path: ${{github.workspace}}/dist/*
