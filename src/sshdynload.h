@@ -1,4 +1,4 @@
-#define FUNCDEF(r,p) r p
+#define FUNCDEF(f,p) WINAPI f p
 
 #include "SshDynFunctions.h"
 
