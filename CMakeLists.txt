@@ -60,7 +60,6 @@ target_compile_definitions(sftpplug PRIVATE
     SFTPPLUG_EXPORTS
     HAVE_WINSOCK2_H
     LIBSSH2_WIN32
-    _WINSOCKAPI_
 )
 
 # Include directories
