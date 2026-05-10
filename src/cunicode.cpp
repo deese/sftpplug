@@ -1,3 +1,4 @@
+#include <winsock2.h>
 #include <windows.h>
 #include "fsplugin.h"
 #include "cunicode.h"

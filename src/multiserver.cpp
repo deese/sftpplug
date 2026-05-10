@@ -1,3 +1,4 @@
+#include <winsock2.h>
 #include <windows.h>
 #include "multiserver.h"
 #include "utils.h"

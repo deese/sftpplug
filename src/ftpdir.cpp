@@ -1,9 +1,10 @@
+#include <winsock2.h>
 #include <windows.h>
 #include "utils.h"
 #include "ftpdir.h"
 
 WCHAR* month[37]={L"",L"JAN",L"FEB",L"MAR",L"APR",L"MAY",L"JUN",L"JUL",L"AUG",L"SEP",L"OCT",L"NOV",L"DEC",
-		 L"",L"",L"MÄR",L"",L"MAI",L"",L"",L"",L"",L"OKT",L"",L"DEZ",
+		 L"",L"",L"Mï¿½R",L"",L"MAI",L"",L"",L"",L"",L"OKT",L"",L"DEZ",
 		 L"",L"FEV",L"MRZ",L"AVR",L"",L"JUI",L"",L"",L"",L"",L"",L""};
 
 BOOL LineContainsonlySlashes(WCHAR* lpStr)
@@ -230,7 +231,7 @@ WCHAR* FindNameUnix(WCHAR* szLine,int* link,
 								if (wcschr(L" \t-,/",monthpos[0])!=NULL) monthpos++;
 							if (isadigit(monthpos[0])) {
 								if (!daybeforemonth) {
-									if (DecodeNumber(&monthpos,&num)) {	/*Tag überspringen*/
+									if (DecodeNumber(&monthpos,&num)) {	/*Tag ï¿½berspringen*/
 										while (monthpos[0]==' ') monthpos++;
 									} else found=false;
 								}
@@ -249,7 +250,7 @@ WCHAR* FindNameUnix(WCHAR* szLine,int* link,
 	/*Minmonthpos zeigt nun auf Jahr bzw. Zeit*/
 	if (minmonthpos!=NULL) {
 		p=szLine+(minmonthpos-linebuf);	/*Auf szLine zeigen!!!*/
-		if (DecodeNumber(&p,&num)) {	/*Stunde bzw. Jahr überspringen*/
+		if (DecodeNumber(&p,&num)) {	/*Stunde bzw. Jahr ï¿½berspringen*/
 			p--;
 			ch=p[0];
 			p++;
@@ -262,7 +263,7 @@ WCHAR* FindNameUnix(WCHAR* szLine,int* link,
 					ok=true;									/*Novell: Zeit nach Jahr, oft mit am/pm!*/
 					p2=p;
 					while (p[0]==' ') p++;
-					if (wcslen(p)>5 && DecodeNumber(&p,&num)) {	/*Stunde überspringen*/
+					if (wcslen(p)>5 && DecodeNumber(&p,&num)) {	/*Stunde ï¿½berspringen*/
 						p--;					 /*Achtung: nicht Namen als Zahl erkennen!*/
 						ch=p[0];
 						p++;
@@ -357,9 +358,9 @@ void ReadDateTimeSizeUnix(WCHAR* lpS,FILETIME* datetime,__int64* sizefile)
 					if (monthpos!=lpstr) {
 						if (wcschr(L" \t-,/",monthpos[3])==NULL) {
 							found=false;
-							/*Deutsch kann auch sein 'Juni' 'März,' etc.*/
+							/*Deutsch kann auch sein 'Juni' 'Mï¿½rz,' etc.*/
 							/*-r-sr-xr-x	 1 lp				 bin					16384 27. Juni 1997 enable
-							lr-xr-xr-t	 1 root			 sys						 20 16. März, 15:20 endif -> /opt/ansic/bin/endif*/
+							lr-xr-xr-t	 1 root			 sys						 20 16. Mï¿½rz, 15:20 endif -> /opt/ansic/bin/endif*/
 							if (wcschr(L" \t-,/",monthpos[4])!=NULL) {
 								found=true;
 								incr=4;
@@ -494,7 +495,7 @@ void ReadDateTimeSizeUnix(WCHAR* lpS,FILETIME* datetime,__int64* sizefile)
 						/*Novell: Zeit nach Jahr!*/
 						lp1=lp2+1;
 						while (lp1[0]==' ') lp1++;
-						if (DecodeNumber(&lp1,&num)) {	/*Stunde überspringen*/
+						if (DecodeNumber(&lp1,&num)) {	/*Stunde ï¿½berspringen*/
 							t.wHour=num;
 							lp1--;
 							ch=lp1[0];
@@ -601,7 +602,7 @@ BOOL ReadDirLineUNIX(WCHAR* lpStr,WCHAR* thename,int maxlen,__int64* sizefile,FI
 		pstr=FindNameUnix(lpStr,&linktest,longdatetype);
 		*attr=0;
 
-		if (Permissions[0]=='l') {		// könnte beides sein!
+		if (Permissions[0]=='l') {		// kï¿½nnte beides sein!
 			*attr|=falink;				// Zeigt Link an
 		}
 	}

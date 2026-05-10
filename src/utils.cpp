@@ -1,3 +1,4 @@
+#include <winsock2.h>
 #include <windows.h>
 #include <time.h>
 #include "utils.h"
@@ -529,7 +530,7 @@ WCHAR* wcstok2(WCHAR* name)
 			wcstok2_p0[0]=0;
 			wcstok2_p0++;
 		}
-	} else {      // Anführungszeichen!
+	} else {      // Anfï¿½hrungszeichen!
 		p3=wcschr(p1+1,'"');
 		if (!p3)
 			p3=p1+wcslen(p1);

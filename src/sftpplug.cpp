@@ -1,7 +1,8 @@
 // sertransplg.cpp : Defines the entry point for the DLL application.
 //
 
-#include "windows.h"
+#include <winsock2.h>
+#include <windows.h>
 #include "fsplugin.h"
 #include "utils.h"
 #include "resource.h"
